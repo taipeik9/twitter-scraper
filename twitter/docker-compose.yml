@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  script:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: twitter-scraper
+    command: scrapy crawl tweets -o 'data/tweets.csv' -a query="from:elonmusk"
+    volumes:
+      - .:/app
